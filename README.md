@@ -31,13 +31,13 @@
 #### Вариант 1
 Через curl запустите файл установки программы
 
-    curl -s https://raw.githubusercontent.com/Dubrovsky18/test-case-effective-mobile/main/install_monitor-test.sh | sudo bash
-    
+    curl -shttps://raw.githubusercontent.com/Dubrovsky18/test-case-effective-mobile/refs/heads/main/intall_monitor_test.sh | sudo bash
+
 #### Вариант 2
 
 1. **Склонируйте репозиторий или создайте файлы вручную**:
    ```bash
-   git clone https://github.com/yourusername/monitor-test.git
+   git clone https://github.com/Dubrovsky18/test-case-effective-mobile.git
    cd monitor-test
 ###### Или скопируйте файлы: monitor_test.sh, monitor-test.service, monitor-test.timer.
 

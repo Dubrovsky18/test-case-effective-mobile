@@ -26,12 +26,12 @@ for cmd in curl pgrep systemctl; do
 done
 
 SCRIPT_PATH="/usr/local/bin/monitor_test.sh"
-REMOTE_SCRIPT_PATH="https://raw.githubusercontent.com/Dubrovsky18/test-case-effective-mobile/main/monitor-test.sh"
+REMOTE_SCRIPT_PATH="https://raw.githubusercontent.com/Dubrovsky18/test-case-effective-mobile/refs/heads/main/monitor_test.sh"
 LOG_FILE="/var/log/monitoring.log"
 SERVICE_FILE="/etc/systemd/system/monitor-test.service"
-REMOTE_SERVICE_FILE="https://raw.githubusercontent.com/Dubrovsky18/test-case-effective-mobile/main/monitor-test.service"
+REMOTE_SERVICE_FILE="https://raw.githubusercontent.com/Dubrovsky18/test-case-effective-mobile/refs/heads/main/monitor-test.service"
 TIMER_FILE="/etc/systemd/system/monitor-test.timer"
-REMOTE_TIMER_FILE="https://raw.githubusercontent.com/Dubrovsky18/test-case-effective-mobile/main/monitor-test.timer"
+REMOTE_TIMER_FILE="https://raw.githubusercontent.com/Dubrovsky18/test-case-effective-mobile/refs/heads/main/monitor-test.timer"
 
 sudo curl -o $SCRIPT_PATH $REMOTE_SCRIPT_PATH 
 sudo chmod +x $SCRIPT_PATH
