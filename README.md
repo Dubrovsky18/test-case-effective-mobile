@@ -1,6 +1,5 @@
 # Test Case Effective Mobile
 
-
 # Monitor Test Process
 
 Этот проект содержит Bash-скрипт и systemd-юниты для мониторинга процесса `test` в среде Linux. Скрипт автоматически отслеживает состояние процесса и уведомляет о перезапусках или проблемах с сервером мониторинга через лог-файл.
@@ -31,48 +30,49 @@
 #### Вариант 1
 Через curl запустите файл установки программы
 
-    curl -shttps://raw.githubusercontent.com/Dubrovsky18/test-case-effective-mobile/refs/heads/main/intall_monitor_test.sh | sudo bash
+    curl -s https://raw.githubusercontent.com/Dubrovsky18/test-case-effective-mobile/refs/heads/main/install_monitor_test.sh | sudo bash
 
 #### Вариант 2
 
 1. **Склонируйте репозиторий или создайте файлы вручную**:
    ```bash
-   git clone https://github.com/Dubrovsky18/test-case-effective-mobile.git
-   cd monitor-test
+    git clone https://github.com/Dubrovsky18/test-case-effective-mobile.git
+    ```
 ###### Или скопируйте файлы: monitor_test.sh, monitor-test.service, monitor-test.timer.
 
 2. **Разместите скрипт**:
-
+    ```bash
     sudo cp monitor_test.sh /usr/local/bin/monitor_test.sh
     sudo chmod +x /usr/local/bin/monitor_test.sh
-
+    ```
 3. **Создайте лог-файл**:
-
+    ``` bash
     sudo touch /var/log/monitoring.log
     sudo chmod 644 /var/log/monitoring.log
+    ```
 
 4. **Настройте systemd-сервис**:
-
+    ```bash
     sudo cp monitor-test.service /etc/systemd/system/monitor-test.service
-
+    ```
 5. **Настройте systemd-таймер**:
-
+    ```bash
     sudo cp monitor-test.timer /etc/systemd/system/monitor-test.timer
-
+    ```
 6. **Перезагрузите systemd и запустите**:
-
+    ```bash
     sudo systemctl daemon-reload
     sudo systemctl enable monitor-test.timer
     sudo systemctl start monitor-test.timer
-
+    ```
 7. **Проверьте статус**:
-
+    ```bash
     sudo systemctl status monitor-test.timer
     sudo systemctl status monitor-test.service
-
-Файлы в репозитории:
-
-- intall_monitor-test.sh: Скрипт установки программы.
-- monitor-test.sh: Основной скрипт мониторинга.
+    ```
+Файлы в репозитории
+- install_monitor_test.sh: Скрипт для автоматической установки.
+- monitor_test.sh: Основной скрипт мониторинга процесса test.
 - monitor-test.service: Systemd-юнит для запуска скрипта.
-- monitor-test.timer: Systemd-таймер для запуска каждую минуту.
+- monitor-test.timer: Systemd-таймер для выполнения скрипта каждую минуту.
+- check_test_case.sh: Тестовый скрипт для запуска процесса test и проверки работы мониторинга.
